@@ -1,9 +1,70 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Tab Three
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+  <ion-item>
+    <ion-label position="stacked">Stacked Label</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-slides #signupSlider>
+  
+
+    <ion-list lines="none">
+    
+        <form  [formGroup]="slideOneForm">
+            <ion-item>
+                <ion-label position="stacked">First Name</ion-label>
+                <ion-input formControlName="firstName"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label position="stacked">Last Name</ion-label>
+                <ion-input formControlName="lastName"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label position="stacked">Age</ion-label>
+                <ion-input formControlName="age" type="number"></ion-input>
+            </ion-item>
+    
+        </form>
+    
+    </ion-list>
+    <ion-list lines="none">
+
+      <form [formGroup]="slideTwoForm">
+
+          <ion-item>
+              <ion-label position="stacked">Username</ion-label>
+              <ion-input formControlName="username"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label position="stacked">Privacy</ion-label>
+              <ion-select formControlName="privacy">
+                  <ion-select-option value="public" checked="true">Public</ion-select-option>
+                  <ion-select-option value="friends">Friends Only</ion-select-option>
+                  <ion-select-option value="private">Private</ion-select-option>
+              </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-label position="stacked">Bio</ion-label>
+              <ion-textarea formControlName="bio"></ion-textarea>
+          </ion-item>
+
+      </form>
+
+  </ion-list>
+
+
+
+  </ion-slides>
+  <ion-button expand="full" color="primary" (click)="save()">Create Account!</ion-button>
+</ion-content>
